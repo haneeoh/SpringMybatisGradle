@@ -4,7 +4,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
-group = 'org.example'
+group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
 java {
@@ -27,11 +27,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
-
     //add gradle-naver storage
     implementation group: 'io.awspring.cloud', name: 'spring-cloud-starter-aws', version: '2.4.4'
     implementation group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.12.416'
     implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '3.3.0'
+
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
