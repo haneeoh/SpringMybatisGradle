@@ -45,7 +45,14 @@ public class NcpObjectStorageService implements ObjectStorageService {
             String filename =sdf.format(new Date())+UUID.randomUUID().toString().substring(0,10)
                     +"."+file.getOriginalFilename().split("\\.")[1];
 
+//            // ✅ 추가된 디버깅 로그
+//            System.out.println("버킷 이름: " + bucketName);
+//            System.out.println("파일 업로드 경로: " + directoryPath + "/" + filename);
+//            System.out.println("파일 크기: " + file.getSize() + " bytes");
+//            System.out.println("Content Type: " + file.getContentType());
+
             ObjectMetadata objectMetadata = new ObjectMetadata();
+            objectMetadata.setContentLength(file.getSize());//사이즈 지정해주지않아서 오류가뜸
             objectMetadata.setContentType(file.getContentType());
 
             PutObjectRequest objectRequest = new PutObjectRequest(

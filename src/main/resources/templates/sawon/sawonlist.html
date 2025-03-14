@@ -62,11 +62,16 @@
                     </th:block>
 
                     <th:block th:if="${dto.photo==null}">
-                        <img th:src="|${imagePath}noimage.png?type=f&w=30&h=30&faceopt=true&ttype=jpg|"
+                        <img th:src="|${imagePath}noimage.jpg?type=f&w=30&h=30&faceopt=true&ttype=jpg|"
                              class="photo">
                     </th:block>
                     <span>[[${dto.sawonname}]]</span>
                     <span style="color:gray;">([[${dto.buseo}]])</span>
+                    <span style="margin-left:20px;color:gray;cursor: pointer">
+                        <a th:href=@{./delete(num=${dto.num})}>
+                            <i class="bi bi-x-lg"></i>
+                        </a>
+                    </span>
                     <span class="day">
 				   	[[${#calendars.format(dto.writeday,'yyyy-MM-dd')}]]
 				   </span>
